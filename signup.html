@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #signup1{
+
+            /* border: 1px solid red; */
+            width: 300px;
+            height: 100%;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            /* margin: auto; */
+        }
+        input{
+            padding: 10px;
+            font-size: large;
+            font-weight: bolder;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        button{
+            
+            padding: 10px 20px;
+            margin-left: 100px;
+            margin-bottom:20px ;
+        }
+    </style>
+</head>
+<body>
+    <div id="signup1">
+        <h2>you can signup here</h2>
+        <input type="text" placeholder="Enter name " id="name"><br>
+        <input type="text" placeholder="Enter email " id="email"><br>
+        <input type="password" placeholder="Enter password " id="pass"><br>
+        <!-- <input type="text" placeholder="Enter name " id="name"><br> -->
+        <button onclick="signup()">Signup</button>
+
+
+
+    </div>
+</body>
+</html>
+
+<script>
+
+let userData =JSON.parse(localStorage.getItem("userDatabase")) ||[]
+    function signup() {
+
+//    console.log("here")
+
+
+   
+        let email=document.getElementById("email").value;
+        let name=document.getElementById("name").value;
+
+        let pass=document.getElementById("pass").value;
+
+        var database ={
+        emailAdd:email,
+        password:pass,
+        username:name,
+
+
+
+        }
+
+        userData.push(database);
+
+        localStorage.setItem("userDatabase",JSON.stringify(userData));
+        alert("finally signin ho gya aapka")
+        window.location.href="login.html"
+    
+        // var data =JSON.parse(localStorage.getItem("userdata")) ||[]
+
+
+        // let email=document.getElementById("email").value;
+        // let name=document.getElementById("name").value;
+
+        // let pass=document.getElementById("pass").value;
+    
+
+        // var database ={
+
+        //     emailAdd:email,
+        //     password:pass,
+        //     username:name,
+        // }
+
+        // data.push(database)
+        // localStorage.setItem("userdata",JSON.stringfy(data))
+ 
+    }
+</script>
